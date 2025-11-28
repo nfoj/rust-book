@@ -2,9 +2,9 @@
 
 01 - Create a struct named Book with the following fields:
 
-title (String)
-author (String)
-pages (u32)
+- title (String)
+- author (String)
+- pages (u32)
 
 Then, create an instance of this struct and print its values.
 
@@ -38,9 +38,9 @@ fn main() {
 
 02 - Create a Car struct with the fields:
 
-brand (String)
-model (String)
-year (u16)
+- brand (String)
+- model (String)
+- year (u16)
 
 Use impl to create an associated function new() to facilitate the creation of new cars.
 
@@ -72,56 +72,19 @@ fn main() {
 ```
 </details>
 
-03 - Create an Account struct with the fields:
-
-holder (String)
-balance (f64)
-
-Implement a check_balance() method that returns the current balance.
-
-[Playground!]()
-
-<details>
-<summary>Answers</summary>
-
-```rust
-struct BankAccount {
-    holder: String,
-    balance: f64,
-}
-
-impl BankAccount {
-    fn new_user(holder: String, balance: f64) -> Self {
-        BankAccount { holder, balance }
-    }
-
-    fn check_balance(&self) -> String {
-        format!("R$: {:.2}", self.balance)
-    }
-}
-
-fn main() {
-    let new_user = BankAccount::new_user(String::from("Rodolfo Silva"), 199.598);
-
-    println!("user: {:?}", new_user.holder);
-    println!("Balance: {:?}", new_user.check_balance());
-}
-```
-</details>
-
-04 - Create two structs:
+03 - Create two structs:
 
 Address with:
 
-street (String)
-number (u16)
-city (String)
+- street (String)
+- number (u16)
+- city (String)
 
 Client with:
 
-name (String)
-email (String)
-address (Address)
+- name (String)
+- email (String)
+- address (Address)
 
 [Playground!]()
 
@@ -179,15 +142,15 @@ fn main() {
 ```
 </details>
 
-05 - Create a Counter struct with a single field:
+04 - Create a Counter struct with a single field:
 
-value (i32)
+- value (i32)
 
 Implement three methods:
 
-new() - creates a counter starting at 0
-increment(&mut self) - adds 1 to the value
-get_value(&self) - returns the current value
+- new() - creates a counter starting at 0
+- increment(&mut self) - adds 1 to the value
+- get_value(&self) - returns the current value
 
 [Playground!]()
 
@@ -225,10 +188,10 @@ fn main() {
 ```
 </details>
 
-06 - Create a Rectangle struct with the fields:
+05 - Create a Rectangle struct with the fields:
 
-width (f32)
-height (f32)
+- width (f32)
+- height (f32)
 
 Implement a method named calculate_area(&self) that returns the rectangle's area. Create an instance, call the method, and print the result.
 
@@ -266,58 +229,11 @@ fn main() {
 ```
 </details>
 
-07 - Create a Configuration struct with the fields:
+06 - Create a Tuple Struct named ColorRGB:
 
-timeout (u32)
-active (bool)
-
-Use an impl block to create an associated function named default() that returns a new Configuration with default values: timeout: 3000 and active: true.
-
-[Playground!]()
-
-<details>
-<summary>Answers</summary>
-
-```rust
-struct Settings {
-    timeout: u32,
-    active: bool,
-}
-
-impl Settings {
-    fn init(timeout: u32, active: bool) -> Self {
-        Settings { timeout, active }
-    }
-
-    fn default() -> Self {
-        Settings {
-            timeout: 3000,
-            active: true,
-        }
-    }
-}
-
-fn main() {
-    let result = Settings::init(100, false);
-    println!(
-        "Timeout: {:?}\nActive: {:?}\n",
-        result.timeout, result.active
-    );
-
-    let value_end = Settings::default();
-    println!(
-        "Timeout: {:?}\nActive: {:?}",
-        value_end.timeout, value_end.active
-    );
-}
-```
-</details>
-
-08 - Create a Tuple Struct named ColorRGB:
-
-Represent the colors Red, Green, and Blue (u8 types).
-
-Create an associated function black() that returns the color black (R=0, G=0, B=0). Create an instance of this color using the associated function and print its values.
+- Represent the colors Red, Green, and Blue (u8 types).
+- Create an associated function black() that returns the color black (R=0, G=0, B=0).
+- Create an instance of this color using the associated function and print its values.
 
 [Playground!]()
 
@@ -399,10 +315,10 @@ fn main() {
 ```
 </details>
 
-09 - Create an Employee struct with the fields:
+07 - Create an Employee struct with the fields:
 
-name (String)
-salary (f64)
+- name (String)
+- salary (f64)
 
 Implement a mutable method increase_salary(&mut self, percentage: f64) that increases the employee's salary by the provided percentage (e.g., 0.10 for 10%).
 
@@ -438,12 +354,12 @@ fn main() {
 ```
 </details>
 
-10 - Create a PaymentMethod enum representing different payment forms:
+08 - Create a PaymentMethod enum representing different payment forms:
 
-Cash
-CreditCard (with number of installments)
-DebitCard
-Pix (with key)
+- Cash
+- CreditCard (with number of installments)
+- DebitCard
+- Pix (with key)
 
 Implement a function that receives this enum and returns a message describing the chosen payment.
 
@@ -505,38 +421,392 @@ fn main() {
 ```
 </details>
 
-11 - Create an OperationResult enum that can be:
+09 - Create a Notification enum with the variants:
 
-Success (containing an f64).
-ErrorWithDescription (containing a String).
-UnknownError.
-
-Implement a function that attempts to divide two numbers and returns this enum. Use pattern matching to display the result appropriately.
-
-
-12 - Create a Notification enum with the variants:
-
-Email (recipient and subject).
-SMS (number and message).
-Push (title and body).
+- Email (recipient and subject).
+- SMS (number and message).
+- Push (title and body).
 
 Implement a send() method for each type that simulates sending by printing the relevant information.
 
-13 - Create a RequestState enum representing:
+[Playground!]()
 
-Pending.
-InProgress (with progress percentage).
-Completed (with response data as String).
-Failed (with error code).
+<details>
+<summary>Answers</summary>
 
-Implement the methods is_finished() and get_status() for this enum.
+```rust
+enum Notification {
+    Email { recipient: String, message: String },
+    SMS { number: String, message: String },
+    Push { title: String, body: String },
+}
 
-14 - Create an OrderStatus enum representing the different states of a restaurant order:
+impl Notification {
+    fn send(&self) {
+        match self {
+            Notification::Email { recipient, message } => {
+                println!("Email to: {}", recipient);
+                println!("Subject: {}\n", message);
+            }
 
-Received (with order number).
-InPreparation (with estimated time in minutes).
-ReadyForPickup (with ticket number).
-Delivered.
-Canceled (with reason as String).
+            Notification::SMS { number, message } => {
+                println!("SMS to: {}\n{}\n", number, message);
+            }
+            Notification::Push { title, body } => {
+                println!("Title: {}\n{}\n", title, body);
+            }
+        }
+    }
+}
+
+fn main() {
+    let email = Notification::Email {
+        recipient: String::from("e_mail@email.com"),
+        message: String::from("Welcome to Rust!"),
+    };
+
+    let sms = Notification::SMS {
+        number: String::from("8077777777"),
+        message: String::from("Your code is: 6784"),
+    };
+
+    let noti_push = Notification::Push {
+        title: String::from("New Payment"),
+        body: String::from("You receive: R$ 10,00"),
+    };
+
+    email.send();
+    sms.send();
+    noti_push.send();
+}
+```
+</details>
+
+10 - Create a RequestState enum representing:
+
+- Pending.
+- InProgress (with progress percentage).
+- Completed (with response data as String).
+- Failed (with error code).
+
+Implement the methods get_status() and is_finished() for this enum.
+
+[Playground!]()
+
+<details>
+<summary>Answers</summary>
+
+```rust
+enum RequestState {
+    Pending,
+    InProgress { progress_percent: u8 },
+    Completed { data: String },
+    Failed { code: u32 },
+}
+
+impl RequestState {
+    fn get_status(&self) -> String {
+        match self {
+            RequestState::Pending => {
+                format!("Pending!")
+            }
+
+            RequestState::InProgress { progress_percent } => {
+                format!("In Progress: {}%", progress_percent)
+            }
+
+            RequestState::Completed { data } => {
+                format!("{}", data)
+            }
+
+            RequestState::Failed { code } => {
+                format!("Failed: {}", code)
+            }
+        }
+    }
+
+    fn is_finished(&self) -> bool {
+        match self {
+            RequestState::Pending { .. } | RequestState::InProgress { .. } => false,
+            RequestState::Completed { .. } | RequestState::Failed { .. } => true,
+        }
+    }
+}
+
+fn main() {
+    let pending = RequestState::Pending;
+    let in_progress = RequestState::InProgress {
+        progress_percent: 18,
+    };
+    let completed = RequestState::Completed {
+        data: String::from("Completed!"),
+    };
+    let failed = RequestState::Failed { code: 404 };
+
+    println!("Status: {}", pending.get_status());
+    println!("Finished: {}\n", pending.is_finished());
+
+    println!("Status: {}", in_progress.get_status());
+    println!("Finished: {}\n", in_progress.is_finished());
+
+    println!("Status: {}", completed.get_status());
+    println!("Finished: {}\n", completed.is_finished());
+
+    println!("Status: {}", failed.get_status());
+    println!("Finished: {}", failed.is_finished());
+}
+```
+</details>
+
+11 - Create an OrderStatus enum representing the different states of a restaurant order:
+
+- Received (with order number).
+- InPreparation (with estimated time in minutes).
+- ReadyForPickup (with ticket number).
+- Delivered.
+- Canceled (with reason as String).
 
 Implement the methods can_cancel() which returns true only if the order has not yet been delivered, and time_remaining() which returns Option<u32> with the estimated time (only for orders in preparation).
+
+[Playground!]()
+
+<details>
+<summary>Answers</summary>
+
+```rust
+enum OrderStatus {
+    Received { order: u32 },
+    InPreparation { minutes: u32 },
+    ReadyForPickup { ticket: u32 },
+    Delivered,
+    Canceled { reason: String },
+}
+
+impl OrderStatus {
+    fn can_cancel(&self) -> bool {
+        match self {
+            OrderStatus::Delivered => false,
+            _ => true,
+        }
+    }
+
+    fn time_remaining(&self) -> Option<u32> {
+        match self {
+            OrderStatus::InPreparation { minutes } => Some(*minutes),
+            _ => None,
+        }
+    }
+
+    fn status_description(&self) -> String {
+        match self {
+            OrderStatus::Received { order } => {
+                format!("Order received - N: {}", order)
+            }
+
+            OrderStatus::InPreparation { minutes } => {
+                format!("In preparation - Minutes: {}", minutes)
+            }
+
+            OrderStatus::ReadyForPickup { ticket } => {
+                format!("Ready for pickup - Ticket: {}", ticket)
+            }
+
+            OrderStatus::Delivered => {
+                format!("Delivered!")
+            }
+
+            OrderStatus::Canceled { reason } => {
+                format!("Canceled - Reason: {}", reason)
+            }
+        }
+    }
+}
+
+fn main() {
+    let order_recived = OrderStatus::Received { order: 7895 };
+    let order_prep = OrderStatus::InPreparation { minutes: 30 };
+    let order_delivered = OrderStatus::Delivered;
+    let order_pickup = OrderStatus::ReadyForPickup { ticket: 462 };
+    let order_canceled = OrderStatus::Canceled {
+        reason: String::from("The delivery took a long time!"),
+    };
+    let order_cancel = OrderStatus::Delivered;
+    let order_remaining = OrderStatus::InPreparation { minutes: 110 };
+
+    println!("{}", order_recived.status_description());
+    println!("{}", order_prep.status_description());
+    println!("{}", order_delivered.status_description());
+    println!("{}", order_pickup.status_description());
+    println!("{}", order_canceled.status_description());
+
+    println!("{}", order_cancel.can_cancel());
+    println!("{:?}", order_remaining.time_remaining());
+    println!("{:?}", order_cancel.time_remaining());
+}
+```
+</details>
+
+12 - Create a trait named Shape that defines a method signature area(&self) -> f64. Then, create two structs:
+
+- Rectangle with the fields width: f64 and height: f64.
+- Circle with the field radius: f64.
+
+Implement the Shape trait for both:
+
+- For the rectangle, return width * height.
+- For the circle, return PI * radius * radius.
+
+[Playground!]()
+
+<details>
+<summary>Answers</summary>
+
+```rust
+// use std::f64::consts::PI;
+const PI: f64 = 3.14;
+
+trait Shape {
+    fn area(&self) -> f64;
+}
+
+struct Rectangle {
+    width: f64,
+    height: f64,
+}
+
+impl Shape for Rectangle {
+      fn area(&self) -> f64 {
+          self.width * self.height
+      }
+}
+
+struct Circle {
+    radius: f64,
+}
+
+impl Shape for Circle {
+    fn area(&self) -> f64 {
+        self.radius * self.radius * PI
+    }
+}
+
+fn main() {
+    let rectangle = Rectangle {
+        width: 5.5,
+        height: 3.2,
+    };
+
+    let circle = Circle { radius: 4.4 };
+
+    println!("Rectangle: {:.2}", rectangle.area());
+    println!("Circle: {:.2}", circle.area());
+}
+```
+</details>
+
+13 - Create a trait named Student with two required methods (no default implementation):
+
+name(&self) -> String and greeting(&self) -> String.
+
+- Create a UniversityStudent struct that implements the trait. The greeting method must return the fixed value "Olá, eu sou um estudante."
+- Create a Foreigner struct that implements the trait. The greeting method must return the value "Hello, I am a student from abroad.", overriding the behavior of UniversityStudent.
+
+[Playground!]()
+
+<details>
+<summary>Answers</summary>
+
+```rust
+trait Student {
+    fn name(&self) -> String;
+    fn greeting(&self) -> String;
+}
+
+struct UniversityStudent {
+    name: String,
+}
+
+impl Student for UniversityStudent {
+    fn name(&self) -> String {
+        format!("Meu nome é: {}", self.name)
+    }
+
+    fn greeting(&self) -> String {
+        format!("Olá, eu sou um estudante.")
+    }
+}
+
+struct Foreigner {
+    name: String,
+}
+
+impl Student for Foreigner {
+    fn name(&self) -> String {
+        format!("My name is {}", self.name)
+    }
+
+    fn greeting(&self) -> String {
+        format!("Hello, I am a student from abroad.")
+    }
+}
+
+fn main() {
+    let university = UniversityStudent {
+        name: String::from("Roberto!"),
+    };
+
+    let foreigner = Foreigner {
+        name: String::from("Alice"),
+    };
+
+    println!("Name: {}", university.name());
+    println!("{}\n", university.greeting());
+
+    println!("Name: {}", foreigner.name());
+    println!("{}", foreigner.greeting());
+}
+```
+</details>
+
+14 - Define a simple trait named Summarizable with a method summary(&self) -> String.
+
+- Implement it for a struct Article. Then, write a generic function named notify that receives a parameter item.
+- Use Trait Bounds to ensure that the item passed to the function implements the Summarizable trait. The function must print "New notification: [return value of summary]".
+
+[Playground!]()
+
+<details>
+<summary>Answers</summary>
+
+```rust
+trait Summarizable {
+    fn summary(&self) -> String;
+}
+
+struct Article {
+    headline: String,
+    author: String,
+    content: String,
+}
+
+impl Summarizable for Article {
+    fn summary(&self) -> String {
+        format!("{} \n{}(by {})", self.headline, self.content, self.author)
+    }
+}
+
+fn notify<T: Summarizable>(item: &T) {
+    println!("New notification: {}", item.summary());
+}
+
+fn main() {
+    let article = Article {
+        headline: String::from("Trait Bound!"),
+        author: String::from("The Developer"),
+        content: String::from("A brief text."),
+    };
+
+    notify(&article);
+}
+```
+</details>
