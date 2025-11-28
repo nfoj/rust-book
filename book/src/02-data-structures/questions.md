@@ -118,17 +118,6 @@ fn main() {
     let transaction_value_cents: i64 = -12_345_678_900;
     println!("Debit = {:?} million", transaction_value_cents);
 }
-
-/*
-    Debugging: The code below attempts to assign a value that exceeds the limit of i32. Correct the code by choosing
-    a larger i type that can accommodate the value 2_200_000_000.
-
-    fn main() {
-        let large_positive: i32 = 2_200_000_000; // Exceeds the limit of i32 println!("{}", large_positive);
-    }
-*/
-
-// the literal `2_200_000_000` does not fit into the type `i32` whose range is `-2147483648..=2147483647`
 ```
 </details>
 
@@ -174,12 +163,6 @@ fn main() {
 
 ```rust
 fn main() {
-    let limited_memory: f32 = 10.00;
-    println!("{:?}", limited_memory);
-
-    let limited_memory: f32 = -10.00;
-    println!("{:?}", limited_memory);
-
     let sensor_reading: f32 = 7.89;
     println!("{:?}", sensor_reading);
 }
@@ -197,9 +180,6 @@ fn main() {
 fn main() {
     let char_ascii: char = 'Z';
     println!("{:?}", char_ascii);
-
-    //let char_unicode: char = ' ';
-    //println!("{:?}", char_unicode);
 
     let char_unicode: char = 'Ω';
     println!("{:?}", char_unicode);
@@ -378,10 +358,6 @@ fn main() {
 
 ```rust
 fn main() {
-    // let config: (&str, u16) = ("localhost", 8080);
-    //println!("{:?}", config);
-    //config.1 = 8180; // cannot assign to `config.1`, as `config` is not declared as mutable  cannot assign
-
     let mut config: (&str, u16) = ("localhost", 8080);
     println!("{:?}", config);
 
@@ -399,14 +375,13 @@ fn main() {
 <summary>Answers</summary>
 
 ```rust
-fn main() {
-    let mut player_stats: (&str, i32, u8) = ("Hero", 0, 3);
-    println!("{:#?}", player_stats);
-
-    player_stats.1 = 1500;
-    player_stats.2 = 2;
+fn main () {
+    let player_stats: (&str, i32, u8) = ("Hero", 0, 3);
+    let (name, mut score, lives) = player_stats;
+    println!("Name: {name}\nScore: {score}\nLives: {lives}\n");
     
-    println!("{:#?}", player_stats);
+    score = 1500;
+    println!("Name: {name}\nScore: {score}\nLives: {lives}");
 }
 ```
 </details>
@@ -461,8 +436,8 @@ fn main () {
 ```rust
 fn main () {
     let months: [&str; 3] = ["January", "February", "March"];
-    println!("{:#?}", months);
 
+    println!("{:#?}\n", months);
     println!("{:#?}", months[1])
 }
 ```
@@ -476,9 +451,12 @@ fn main () {
 <summary>Answers</summary>
 
 ```rust
-fn main() {
-    let powers_of_two: [u32; 6] = [1, 2, 4, 8, 16, 32];
-    println!("{:?}, {:?}, {:?}", powers_of_two[3], powers_of_two[4], powers_of_two[5]);
+fn main () {
+    let powers_of_two: [u8; 6] = [1, 2, 4, 8, 16, 32];
+    println!("{powers_of_two:#?}\n");
+    
+    let powers_of_two: [u8; 6] = [1, 2, 4, 8, 16, 32];
+    println!("{:#?}", powers_of_two[5]);
 }
 ```
 </details>
