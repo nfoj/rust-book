@@ -16,6 +16,14 @@ let person: (&str, u8, f32) = ("Rodolfo", 40, 1.70);
 println!("{:#?}", person);
 ```
 
+`{var:?}`
+
+```rust
+let person: (&str, u8, f32) = ("Rodolfo", 40, 1.70);
+println!("{person:#?}");
+
+```
+
 `Error`
 
 ```rust 
